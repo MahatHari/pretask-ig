@@ -10,16 +10,12 @@ function App() {
     <div className='container-fluid'>
       <Router>
         <Header />
+
         <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route exact path='/user/:id'>
-            <UserDetails />
-          </Route>
-          <Route exact path='/users'>
-            <ListCard />
-          </Route>
+          <Route exact path='/' component={Home} />
+
+          <Route exact path='/user/:id' component={UserDetails} />
+          <Route exact path='/users' component={ListCard} />
         </Switch>
       </Router>
     </div>
