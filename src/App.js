@@ -1,4 +1,3 @@
-/* import ListCard from './components/ListCard';*/
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/shared/Header';
 import Home from './components/Home';
@@ -16,7 +15,7 @@ function App() {
           <Route exact path='/' component={Home} />
 
           <Route exact path='/user/:id' component={UserDetails} />
-          {/* <Route exact path='/users' component={ListCard} /> */}
+
           <Route component={PageNotFound} />
         </Switch>
       </Router>
