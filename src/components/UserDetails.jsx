@@ -3,8 +3,9 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import Spinner from './Spinner';
-import Button from './Button';
+import Spinner from './shared/Spinner';
+import Button from './shared/Button';
+import PageNotFound from './shared/PageNotFound';
 
 /* Component Logic */
 const UserDetails = () => {
@@ -12,31 +13,27 @@ const UserDetails = () => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const url = 'https://jsonplaceholder.typicode.com/users/';
 
   useEffect(() => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .get(`${url}${id}`)
       .then((res) => {
-        console.log('Response=>', res.data);
         setUser([res.data]);
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
         setError(error);
       });
   }, [id]);
-  console.log('Error=>', error);
-  console.log('User=>', user);
 
-  console.log(typeof user);
   return (
     <div className='container mt-5 py-5 bg-light'>
       {loading ? (
         <Spinner />
       ) : user === undefined || error.length !== 0 ? (
-        <div className='jumbotron text-center'>User not found</div>
+        <PageNotFound />
       ) : (
         user.map((usr) => (
           <Details key={usr.id} {...usr} {...usr.address} {...usr.company} />

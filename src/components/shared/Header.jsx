@@ -27,11 +27,11 @@ const Header = () => {
               </NavLink>
             </li>
 
-            <li className='nav-item nav-link'>
+            {/*  <li className='nav-item nav-link'>
               <NavLink to='/users' onClick={toggleMenu}>
                 User List
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

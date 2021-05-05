@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from './shared/Button';
 
 const UserCard = ({ id, name, username, website, handleClick }) => {
   return (
